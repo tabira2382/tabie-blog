@@ -1,0 +1,22 @@
+# lefthook.yml
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      run: pnpm biome check --write --staged --files-ignore-unknown=true --no-errors-on-unmatched
+      stage_fixed: true
+    typecheck:
+      glob: "*.{ts,tsx}"
+      run: pnpm tsc --noEmit
+
+pre-push:
+  commands:
+    test:
+      run: pnpm test --run
+    build:
+      run: pnpm build
+
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm commitlint --edit {1}
