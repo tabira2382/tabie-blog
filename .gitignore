@@ -57,5 +57,5 @@ next-env.d.ts
 # Claude Code
 .claude/
 
-# Guideline (internal docs)
-/guideline/
+# docs
+/docs/
