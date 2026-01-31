@@ -53,3 +53,30 @@ export function getAllPosts(): Post[] {
 
   return posts
 }
+
+/**
+ * 全ての記事から使用されているタグを取得する
+ * @returns タグと記事数のマップ
+ */
+export function getAllTags(): Map<string, number> {
+  const posts = getAllPosts()
+  const tagCount = new Map<string, number>()
+
+  for (const post of posts) {
+    for (const tag of post.tags) {
+      tagCount.set(tag, (tagCount.get(tag) || 0) + 1)
+    }
+  }
+
+  return tagCount
+}
+
+/**
+ * 指定したタグを持つ記事を取得する
+ * @param tag - タグ名
+ * @returns 該当する記事の配列
+ */
+export function getPostsByTag(tag: string): Post[] {
+  const posts = getAllPosts()
+  return posts.filter((post) => post.tags.includes(tag))
+}
