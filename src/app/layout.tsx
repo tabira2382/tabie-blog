@@ -13,9 +13,27 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-export const metadata: Metadata = {
-  title: 'Tabie Blog',
+const siteConfig = {
+  name: 'Tabie Blog',
   description: '技術ブログ',
+  url: 'https://example.com', // 本番URLに変更
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 }
 
 export default function RootLayout({
