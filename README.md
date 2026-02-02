@@ -22,7 +22,7 @@
 ## 機能
 
 - **MDX ベースの記事管理** - ローカルファイルでコンテンツ管理（CMS 不要）
-- **シンタックスハイライト** - Shiki + rehype-pretty-code による美しいコード表示
+- **シンタックスハイライト** - Shiki + rehype-pretty-code
 - **タグ機能** - 記事をカテゴリ分け
 - **目次自動生成** - 記事の見出しから目次を自動生成
 - **レスポンシブデザイン** - Tailwind CSS v4 + shadcn/ui
@@ -46,7 +46,7 @@
 
 ## アーキテクチャ
 
-このプロジェクトは [Bulletproof React](https://github.com/alan2207/bulletproof-react) と [Next.js App Router Architecture](https://github.com/YukiOnishi1129/next-app-router-architecture) を参考に設計しています。
+このプロジェクトは [Bulletproof React](https://github.com/alan2207/bulletproof-react)を参考に設計しています。
 
 ### 主な設計方針
 
@@ -54,8 +54,6 @@
 - **app/ は薄く保つ** - ルーティングとメタデータのみ。ビジネスロジックは features へ
 - **Server/Client 境界の明確化** - ディレクトリで分離
 - **Container/Presenter パターン** - Client Components に適用
-
-詳細は [docs/architecture.md](./docs/architecture.md) を参照してください。
 
 ## 開発環境構築
 
