@@ -3,7 +3,6 @@ import { useCallback, useState } from 'react'
 /** ナビゲーション項目の定義 */
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
-  { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
 ] as const
 
