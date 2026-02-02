@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 
 test('has title', async ({ page }) => {
   await page.goto('/')
-  await expect(page).toHaveTitle(/Tech Blog/)
+  await expect(page).toHaveTitle(/Tabie Blog/)
 })
 
 test('home page loads', async ({ page }) => {
