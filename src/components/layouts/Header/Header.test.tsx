@@ -47,17 +47,15 @@ describe('useHeader', () => {
   it('navItemsが定義されている', () => {
     const { result } = renderHook(() => useHeader())
 
-    expect(result.current.navItems).toHaveLength(3)
+    expect(result.current.navItems).toHaveLength(2)
     expect(result.current.navItems[0]).toEqual({ href: '/', label: 'Home' })
-    expect(result.current.navItems[1]).toEqual({ href: '/blog', label: 'Blog' })
-    expect(result.current.navItems[2]).toEqual({ href: '/about', label: 'About' })
+    expect(result.current.navItems[1]).toEqual({ href: '/about', label: 'About' })
   })
 })
 
 describe('HeaderPresenter', () => {
   const mockNavItems = [
     { href: '/', label: 'Home' },
-    { href: '/blog', label: 'Blog' },
     { href: '/about', label: 'About' },
   ]
 
@@ -86,7 +84,6 @@ describe('HeaderPresenter', () => {
     )
 
     expect(screen.getByText('Home')).toBeInTheDocument()
-    expect(screen.getByText('Blog')).toBeInTheDocument()
     expect(screen.getByText('About')).toBeInTheDocument()
   })
 
