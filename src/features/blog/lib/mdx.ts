@@ -1,5 +1,6 @@
 import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypePrettyCode from 'rehype-pretty-code'
+import remarkGfm from 'remark-gfm'
 import type { Post, TocItem } from '../types'
 
 /**
@@ -13,6 +14,8 @@ export async function compileMdxContent(post: Post) {
     options: {
       parseFrontmatter: false,
       mdxOptions: {
+        // 表・打ち消し線などの GitHub Flavored Markdown を有効にする
+        remarkPlugins: [remarkGfm],
         rehypePlugins: [
           [
             rehypePrettyCode,

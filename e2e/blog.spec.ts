@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test'
 
 test.describe('ブログ機能', () => {
-  test('記事一覧ページが表示される', async ({ page }) => {
-    await page.goto('/blog')
+  test('記事一覧ページ（トップ）が表示される', async ({ page }) => {
+    await page.goto('/')
 
     // ページタイトルを確認
     await expect(page.locator('h1')).toBeVisible()
@@ -13,7 +13,7 @@ test.describe('ブログ機能', () => {
   })
 
   test('記事一覧から詳細ページへ遷移できる', async ({ page }) => {
-    await page.goto('/blog')
+    await page.goto('/')
 
     // 最初の記事カードをクリック
     const firstCard = page.locator('[data-testid="post-card"]').first()
@@ -24,6 +24,14 @@ test.describe('ブログ機能', () => {
 
     // 記事タイトルが表示される
     await expect(page.locator('h1').first()).toBeVisible()
+  })
+
+  test('旧URL（/blog）はトップの記事一覧に転送される', async ({ page }) => {
+    await page.goto('/blog')
+
+    await expect(page).toHaveURL(/\/$/)
+    const postCards = page.locator('[data-testid="post-card"]')
+    await expect(postCards.first()).toBeVisible()
   })
 
   test('タグでフィルタリングできる', async ({ page }) => {

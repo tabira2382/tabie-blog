@@ -40,7 +40,9 @@ export async function PostDetailTemplate({ slug }: PostDetailTemplateProps) {
             </div>
           </header>
 
-          <div className="prose prose-neutral dark:prose-invert max-w-none">{content}</div>
+          <div className="prose prose-neutral dark:prose-invert max-w-none prose-code:before:content-none prose-code:after:content-none">
+            {content}
+          </div>
         </article>
 
         <aside className="hidden lg:block">
